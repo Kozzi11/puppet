@@ -7,11 +7,7 @@ class apache {
         ensure => present,
         require => Package["httpd"],
     }
-
-    package { "iptables" :
-        ensure => present,
-    }
-
+   
     package { "setroubleshoot" :
         ensure => present,
     }
@@ -20,21 +16,6 @@ class apache {
         ensure => "running",
         enable => true,
         require => Package["httpd"],
-    }
-
-    service { "iptables":
-        ensure => "running",
-        enable => true,
-        require => Package["iptables"],
-    }
-
-    file { "/etc/sysconfig/iptables":
-        notify  => Service["iptables"],  # this sets up the relationship
-        owner => "root",
-        group => "root",
-        mode => 0600,
-        source => "puppet://$puppetserver/modules/apache/etc/sysconfig/iptables",
-        require => Package["iptables"],
     }
 
     file { "/etc/selinux/config":
