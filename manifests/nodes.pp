@@ -4,4 +4,5 @@ node 'node1.kozzi.eu' {
     include sshd
     include iptables
     include selinux
+    include createuser
 }
