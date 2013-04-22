@@ -26,7 +26,7 @@ Install and setup openssh-server for remote access, disable root login for secur
 
 createuser
 ---------
-Add user with username: kozak and password: polda11 -- for remote ssh access
+Add user with username: kozak and password: polda11 (for remote ssh access)
 
 selinux
 ------
