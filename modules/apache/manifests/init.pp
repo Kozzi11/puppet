@@ -8,21 +8,10 @@ class apache {
         require => Package["httpd"],
     }
    
-    package { "setroubleshoot" :
-        ensure => present,
-    }
-
     service { "httpd":
         ensure => "running",
         enable => true,
         require => Package["httpd"],
-    }
-
-    file { "/etc/selinux/config":
-        owner => "root",
-        group => "root",
-        mode => 0644,
-        source => "puppet://$puppetserver/modules/apache/etc/selinux/config",
     }
 
     file { "/var/www/html/systeminfo":
