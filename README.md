@@ -32,8 +32,8 @@ selinux
 ------
 switch selinux to permissive mode, when enforcing mode is active, some information in systeminfo CGI script are missing
 
-Install
-======
+Install and run
+=============
 
 Master
 -----
