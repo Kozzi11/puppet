@@ -12,7 +12,9 @@ CGI script.
 sysinfo
 ------
 CGI script for display html page with some system information
-CGI script result is available under URL: http://node1.kozzi.eu/systeminfo/
+
+CGI script is installed into /var/www/html/systeminfo and script
+result is available under URL: http://node1.kozzi.eu/systeminfo/
 
 iptables
 -------
