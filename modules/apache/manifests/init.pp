@@ -13,29 +13,6 @@ class apache {
         enable => true,
         require => Package["httpd"],
     }
-
-    file { "/var/www/html/systeminfo":
-        ensure => "directory",
-        owner => "apache",
-        group => "apache",
-        mode => 0750,
-    }
-
-    file { "/var/www/html/systeminfo/index.pl":
-        owner => "apache",
-        group => "apache",
-        mode => 0750,
-        source => "puppet://$puppetserver/modules/apache/var/www/html/systeminfo/index.pl",
-        require => File["/var/www/html/systeminfo"],
-    }
-    
-    file { "/var/www/html/systeminfo/SysInfo.pm":
-        owner => "apache",
-        group => "apache",
-        mode => 0750,
-        source => "puppet://$puppetserver/modules/apache/var/www/html/systeminfo/SysInfo.pm",
-        require => File["/var/www/html/systeminfo"],
-    }
     
     file { "/etc/httpd/conf.d/perl.conf":
         owner => "root",
