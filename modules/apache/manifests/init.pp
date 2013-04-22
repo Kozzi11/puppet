@@ -14,12 +14,12 @@ class apache {
         require => Package["httpd"],
     }
     
-    file { "/etc/httpd/conf.d/perl.conf":
+    file { "/etc/httpd/conf.d/systeminfo.conf":
         owner => "root",
         group => "root",
         mode => 0644,
         source =>
-        "puppet://$puppetserver/modules/apache/etc/httpd/conf.d/perl.conf",
+        "puppet://$puppetserver/modules/apache/etc/httpd/conf.d/systeminfo.conf",
         require => Package["mod_perl"],
     }
     
