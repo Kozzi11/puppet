@@ -1,4 +1,12 @@
+#####################################################################
+#                                                                   #
+#    Author: Daniel Kozak                                           #
+#    Description: Basic class for getting some system informations  #
+#                                                                   #
+#####################################################################
+
 package SysInfo;
+
 sub getUptime() {
 	return `uptime`;
 }

@@ -1,23 +1,32 @@
 #!/usr/bin/perl
+
+#####################################################################
+#                                                                   #
+#    Author: Daniel Kozak                                           #
+#    Description: CGI script - print some basic system information  #
+#                                                                   #
+#####################################################################
+
 use strict;
 
 use File::Basename;
-use lib dirname( __FILE__ );
+use lib dirname( __FILE__ ); # set correct @INC
 use HTML::Entities;
 use CGI;
 use SysInfo;
 
-my $now = localtime;
 my $cgi = new CGI;
 my $uptime = SysInfo::getUptime();
 my @users = SysInfo::getLoggedUsers(); 
 my $cpuCores = SysInfo::getCpuCores();
 my @procs = SysInfo::getProcesses();
 my @openFiles = SysInfo::getOpenFiles();
+
 my $procsCount = @procs;
 my $usersCount = @users;
 my $openFilesCount = @openFiles;
 my $usersHtml = '';
+
 unshift(@users, 'Login');
 
 sub renderTable($@) {
