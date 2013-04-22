@@ -52,6 +52,7 @@ Client
     puppet agent --server=master.kozzi.eu --no-daemonize --verbose
 
 After first client connect it is neede to sign certificate
+
     puppet cert --sign node1.kozzi.eu
     
 
