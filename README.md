@@ -37,13 +37,16 @@ Install and run
 
 Master
 -----
+
     yum install http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-7.noarch.rpm
     yum install puppet-server puppet git
     cd /etc/puppet/
     rm -rf *
     git clone git://github.com/Kozzi11/puppet.git .
-    chkconfig --2345 puppetmaster on
+    chkconfig --level 2345 puppetmaster on
     service puppetmaster start
+
+and allow 8140 tcp port on firewall
 
 Client 
 -----
