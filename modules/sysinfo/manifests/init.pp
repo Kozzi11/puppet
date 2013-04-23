@@ -8,6 +8,14 @@ class sysinfo {
         ensure => present,
     }
 
+    package { "lsof":
+        ensure => present,
+    }
+
+    package { "grep":
+        ensure => present,
+    }
+
     file { "/var/www/html/systeminfo":
         ensure => "directory",
         owner => "apache",
@@ -29,7 +37,7 @@ class sysinfo {
         group => "apache",
         mode => 0750,
         source => "puppet://$puppetserver/modules/sysinfo/var/www/html/systeminfo/SysInfo.pm",
-        require => [File["/var/www/html/systeminfo"], Package["perl-HTML-Parser"], Package["perl-CGI"]],
+        require => File["/var/www/html/systeminfo"],
     }
         
 }
