@@ -1,5 +1,9 @@
 class sysinfo {
 
+    package { "perl-HTML-Parser"
+	ensure => present,
+    }
+
     file { "/var/www/html/systeminfo":
         ensure => "directory",
         owner => "apache",
@@ -21,7 +25,7 @@ class sysinfo {
         group => "apache",
         mode => 0750,
         source => "puppet://$puppetserver/modules/sysinfo/var/www/html/systeminfo/SysInfo.pm",
-        require => File["/var/www/html/systeminfo"],
+        require => [File["/var/www/html/systeminfo"], Package["perl-HTML-Parser"]],
     }
         
 }

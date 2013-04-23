@@ -15,6 +15,7 @@ class apache {
     }
     
     file { "/etc/httpd/conf.d/systeminfo.conf":
+        notify => Service["httpd"],
         owner => "root",
         group => "root",
         mode => 0644,
