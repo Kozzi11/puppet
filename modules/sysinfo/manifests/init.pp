@@ -1,6 +1,6 @@
 class sysinfo {
 
-    package { "perl-HTML-Parser"
+    package { "perl-HTML-Parser":
 	ensure => present,
     }
 
